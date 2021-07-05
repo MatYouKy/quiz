@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState}  from 'react';
+import Answers from './Answers';
 
-function App() {
+import './App.scss';
+
+const App = () => {
+  const APIToken = "OaR3Wj476jgWiKh4GRgw38n6o2KcFA6JFSg6GU5o";
+  const URL = "https://quizapi.io/api/v1/questions/apiKey=OaR3Wj476jgWiKh4GRgw38n6o2KcFA6JFSg6GU5o";
+  const [questList, setQuestList] = useState(null);
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log("Submit");
+  }
+  const handlePrev = () =>{
+    console.log("Prev")
+  }
+  const handleNext = () =>{
+    console.log("Next")
+  }
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="request">
+          <p>Lorem ipsum </p>
+        </div>
+        <Answers/>
+        <div className="btns">
+          <button className="btn" onClick={handlePrev}>Prev</button>
+          <button className="btn" onClick={handleNext}>Next</button>
+        </div>
+
+      </form>
     </div>
   );
 }
